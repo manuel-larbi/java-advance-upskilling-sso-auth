@@ -9,10 +9,11 @@ spring:
             client-id: ${GITHUB_CLIENT_ID:}
             client-secret: ${GITHUB_CLIENT_SECRET:}
             redirect-uri: ${GITHUB_REDIRECT_URI:}
+            client-authentication-method: ${CLIENT_AUTHENTICATION_METHOD:}
 logging:
   level:
     org:
       springframework:
         security: TRACE
 server:
-port: ${SERVER_PORT}
+  port: ${SERVER_PORT}
