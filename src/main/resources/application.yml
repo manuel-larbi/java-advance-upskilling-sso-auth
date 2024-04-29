@@ -1,6 +1,6 @@
 spring:
   application:
-    name: sso-auth
+    name: ${APPLICATION_NAME}
   security:
     oauth2:
       client:
@@ -10,6 +10,10 @@ spring:
             client-secret: ${GITHUB_CLIENT_SECRET:}
             redirect-uri: ${GITHUB_REDIRECT_URI:}
             client-authentication-method: ${CLIENT_AUTHENTICATION_METHOD:}
+          google:
+            client-id: ${GOOGLE_CLIENT_ID:}
+            client-secret: ${GOOGLE_CLIENT_SECRET:}
+
 logging:
   level:
     org:
@@ -17,3 +21,22 @@ logging:
         security: TRACE
 server:
   port: ${SERVER_PORT}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+  info:
+    env:
+      enabled: true
+info:
+  app:
+    name: ${APPLICATION_NAME:}
+    description: ${APPLICATION_DESCRIPTION:}
+    version: ${APPLICATION_VERSION:}
+    build: ${APPLICATION_BUILD:}
